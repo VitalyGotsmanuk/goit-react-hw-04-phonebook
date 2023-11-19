@@ -2,7 +2,7 @@ import { ContactItem } from './ContactItem';
 
 import css from './ContactList.module.css';
 
-export const ContactList = ({ contacts, filter, handleDeleteContact }) => {
+export const ContactList = ({ contacts, handleDeleteContact }) => {
 
     return (
         <ul className={css.list}>

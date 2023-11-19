@@ -19,7 +19,7 @@ export class ContactForm extends Component {
     render () {
     return (
         <form onSubmit={this.handleSubmit}
-              className={css.formInput}>
+            className={css.formInput}>
             <label className={css.contactInput}>
                 <p>Name</p>
                 <input
@@ -29,7 +29,7 @@ export class ContactForm extends Component {
                     required
                     pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     //onChange={this.onChange}
-                    //value={this.state.name}
+                    //value={name}
                 />
             </label>
             
@@ -43,7 +43,7 @@ export class ContactForm extends Component {
                     required
                     pattern="^\+?\d{1,4}[ .\-]?\(?\d{1,3}\)?[ .\-]?\d{1,4}[ .\-]?\d{1,4}[ .\-]?\d{1,9}$"
                     //onChange={this.onChange}
-                    //value={this.state.number}
+                    //value={number}
                 />
             </label>
             
