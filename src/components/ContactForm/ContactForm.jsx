@@ -1,24 +1,53 @@
-import { Component } from 'react';
+// import { Component } from 'react';
+import { useState } from "react";
+
 import css from './ContactForm.module.css';
 
-export class ContactForm extends Component { 
+export const ContactForm = (
+    handleAddContact
+
+) => { 
+    const [name, setName] = useState('');
+    // const handlName = (event) => {
+    //     setName(event.target.value)
+    // }
+    const [number, setNumber] = useState('')
+    // const handlNumber = (event) => {
+    //     setNumber(event.target.value)
+    // }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        switch (name) {
+            case 'name':
+                setName(value);
+                break;
+            case 'number':
+                setNumber(value);
+                break;
+            default:
+                console.log()
+        }
+    }
     
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const name = event.currentTarget.elements.name.value;
-        const number = event.currentTarget.elements.number.value;
+        //const name = event.currentTarget.elements.name.value;
+        //const number = event.currentTarget.elements.number.value;
 
         const contact = {
             name,
-            number //: Number.parseFloat(number), //має бути число
+            number //має бути число
         };
+
+        console.log(contact)
             
-        this.props.handleAddContact(contact)
+        //handleAddContact(contact)
     }
 
-    render () {
     return (
-        <form onSubmit={this.handleSubmit}
+        <form onSubmit={handleSubmit}
             className={css.formInput}>
             <label className={css.contactInput}>
                 <p>Name</p>
@@ -27,9 +56,9 @@ export class ContactForm extends Component {
                     name="name"
                     placeholder='Type name'
                     required
-                    pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                    //onChange={this.onChange}
-                    //value={name}
+                    //pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    onChange={handleChange}
+                    value={name}
                 />
             </label>
             
@@ -42,8 +71,8 @@ export class ContactForm extends Component {
                     title="Format: XXX-XX-XX"
                     required
                     pattern="^\+?\d{1,4}[ .\-]?\(?\d{1,3}\)?[ .\-]?\d{1,4}[ .\-]?\d{1,4}[ .\-]?\d{1,9}$"
-                    //onChange={this.onChange}
-                    //value={number}
+                    onChange={handleChange}
+                    value={number}
                 />
             </label>
             
@@ -52,5 +81,5 @@ export class ContactForm extends Component {
                 type="submit">Add contact</button>
         </form>
     )
-    }
+    
 }
