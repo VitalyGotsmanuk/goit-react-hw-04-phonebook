@@ -1,4 +1,3 @@
-// import { Component } from 'react';
 import { useState } from "react";
 
 import css from './ContactForm.module.css';
@@ -12,7 +11,7 @@ export const ContactForm = ({ handleAddContact }) => {
     // const handlNumber = (event) => {
     //     setNumber(event.target.value)
     // }
-
+   
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -30,17 +29,15 @@ export const ContactForm = ({ handleAddContact }) => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        //const name = event.currentTarget.elements.name.value;
-        //const number = event.currentTarget.elements.number.value;
 
         const contact = {
             name,
             number //має бути число
         };
-
-        //console.log(contact)
             
-        handleAddContact(contact)
+        handleAddContact(contact);
+        setName('');
+        setNumber('');
     }
 
     return (
