@@ -3,10 +3,7 @@ import { useState } from "react";
 
 import css from './ContactForm.module.css';
 
-export const ContactForm = (
-    handleAddContact
-
-) => { 
+export const ContactForm = ({ handleAddContact }) => { 
     const [name, setName] = useState('');
     // const handlName = (event) => {
     //     setName(event.target.value)
@@ -41,9 +38,9 @@ export const ContactForm = (
             number //має бути число
         };
 
-        console.log(contact)
+        //console.log(contact)
             
-        //handleAddContact(contact)
+        handleAddContact(contact)
     }
 
     return (

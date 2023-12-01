@@ -7,7 +7,7 @@ export const ContactItem = ({ name, number, id, handleDeleteContact }) => {
             <p className="">{name}: </p>
             <p className="">{number}</p>
             <button
-                onClick ={() => handleDeleteContact(id, name, number) }
+                onClick ={() => handleDeleteContact(id) }
                 className=""
                 type="button">Delete</button>
         </li>
